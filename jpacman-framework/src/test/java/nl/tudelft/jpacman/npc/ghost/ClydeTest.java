@@ -216,4 +216,58 @@ class ClydeTest {
         assertThat(nextMove).isPresent();
         assertThat(nextMove.get()).isEqualTo(Direction.SOUTH);
     }
+
+    @Test
+    void smallDistanceMultiplePathFree() {
+        String[] map = {
+                        "############",
+                        "            ",
+                        "# P  # C   #",
+                        "            ",
+                        "############"
+                       };
+
+        Level level = parser.parseMap(List.of(map));
+
+        Player player = playerFactory.createPacMan();
+        level.registerPlayer(player);
+
+        Clyde clyde = Navigation.findUnitInBoard(Clyde.class, level.getBoard());
+        assertThat(clyde).isNotNull();
+
+        Optional<Direction> nextMove = clyde.nextAiMove();
+
+        assertThat(nextMove).isPresent();
+        assertThat(nextMove.get()).isEqualTo(Direction.SOUTH);
+            }
+
+
+    @Test
+    void BigDistanceMultiplePathFree() {
+        String[] map = {
+                        "############",
+                        "     P      ",
+                        "            ",
+                        "            ",
+                        "            ",
+                        "            ",
+                        "            ",
+                        "            ",
+                        "     #      ",
+                        "     C     #",
+                        "            ",
+                        "############"
+                        };
+
+        Level level = parser.parseMap(List.of(map));
+
+        Player player = playerFactory.createPacMan();
+        level.registerPlayer(player);
+
+        Clyde clyde = Navigation.findUnitInBoard(Clyde.class, level.getBoard());
+        assertThat(clyde).isNotNull();
+        Optional<Direction> nextMove = clyde.nextAiMove();
+        assertThat(nextMove).isPresent();
+        assertThat(nextMove.get()).isEqualTo(Direction.WEST);
+    }
 }
