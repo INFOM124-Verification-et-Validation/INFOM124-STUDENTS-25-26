@@ -36,7 +36,7 @@ jobs:
         run: xvfb-run mvn -B verify
 
       - name: Sonar
-          env:
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         working-directory: ./jpacman-framework
         run: mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=INFOM124-Verification-et-Validation_INFOM124-STUDENTS-25-26
