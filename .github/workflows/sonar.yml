@@ -30,11 +30,8 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-      - name: Build with Maven
-        working-directory: ./jpacman-framework
-        run: xvfb-run mvn -B clean verify
       - name: Analyze with SonarQube
-        working-directory: ./jpacman-framework
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=INFOM124-Verification-et-Validation_INFOM124-STUDENTS-25-26 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+        working-directory: ./jpacman-framework
+        run: xvfb-run mvn -B verify -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=INFOM124-Verification-et-Validation_INFOM124-STUDENTS-25-26 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
