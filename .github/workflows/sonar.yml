@@ -32,6 +32,6 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Analyze with SonarQube
         working-directory: ./jpacman-framework
-        run: xvfb-run mvn -B clean verify -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=INFOM124-Verification-et-Validation_INFOM124-STUDENTS-25-26 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=INFOM124-Verification-et-Validation
+        run: xvfb-run mvn -B clean verify -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=INFOM124-Verification-et-Validation_INFOM124-STUDENTS-25-26 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=infom124-verification-et-validation
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
