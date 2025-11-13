@@ -39,4 +39,61 @@ class ClydeTest {
         Optional<Direction> direction = clyde.nextAiMove();
         assertEquals(Optional.empty(), direction);
     }
+
+    // Clyde poursuit Pacman (> 8)
+    @Test
+    void distanceTooFar() {
+        List<String> map = Arrays.asList(
+
+            "#############",
+            "#P         C#",
+            "#############"
+        );
+
+        Level level = ghostMapParser.parseMap(map);
+        Player pacman = playerFactory.createPacMan();
+        level.registerPlayer(pacman);
+
+        Clyde clyde = Navigation.findUnitInBoard(Clyde.class, level.getBoard());
+        assertNotNull(clyde);
+        Optional<Direction> direction = clyde.nextAiMove();
+        assertEquals(Optional.of(Direction.WEST), direction);
+
+    }
+
+    // Clyde fuit Pacman (<= 8)
+    @Test
+    void distanceTooClose(){
+        List<String> map = Arrays.asList(
+            "#############",
+            "#  P    C   #",
+            "#           #"
+        );
+
+        Level level = ghostMapParser.parseMap(map);
+        Player pacman = playerFactory.createPacMan();
+        level.registerPlayer(pacman);
+
+        Clyde clyde = Navigation.findUnitInBoard(Clyde.class, level.getBoard());
+        assertNotNull(clyde);
+        Optional<Direction> direction = clyde.nextAiMove();
+        assertEquals(Optional.of(Direction.EAST), direction);
+    }
+
+    @Test
+    void withoutPacman(){
+        List<String> map = Arrays.asList(
+            "#############",
+            "#       C   #",
+            "#           #"
+        );
+
+        Level level = ghostMapParser.parseMap(map);
+
+
+        Clyde clyde = Navigation.findUnitInBoard(Clyde.class, level.getBoard());
+        assertNotNull(clyde);
+        Optional<Direction> direction = clyde.nextAiMove();
+        assertEquals(Optional.empty(), direction);
+    }
 }

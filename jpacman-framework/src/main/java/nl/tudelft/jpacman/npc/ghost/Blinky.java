@@ -90,8 +90,25 @@ public class Blinky extends Ghost {
         }
         assert nearest.hasSquare();
         Square target = nearest.getSquare();
+        Square blinky = getSquare();
 
-        List<Direction> path = Navigation.shortestPath(getSquare(), target, this);
+        int deltaX = target.getX() - blinky.getX();
+        int deltaY = target.getY() - blinky.getY();
+
+        Direction moveDirection;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            moveDirection = deltaY < 0 ? Direction.NORTH : Direction.SOUTH;
+        } else {
+            moveDirection = deltaX < 0 ? Direction.WEST : Direction.EAST;
+        }
+
+        Square next = blinky.getSquareAt(moveDirection);
+        if (next.isAccessibleTo(this)) {
+            return Optional.of(moveDirection);
+        }
+
+        List<Direction> path = Navigation.shortestPath(blinky, target, this);
         if (path != null && !path.isEmpty()) {
             return Optional.ofNullable(path.get(0));
         }

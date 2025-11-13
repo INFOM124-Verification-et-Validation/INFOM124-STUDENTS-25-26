@@ -1,4 +1,4 @@
-# TP 2 - Specification-based testing
+c# TP 2 - Specification-based testing
 
 Let's focus on the movements of the ghosts. For both exercises 1 and 2, use the `GhostMapParser` class to support your JUnit tests. Feel free to explore how the `Ghost` parent class work.
 
