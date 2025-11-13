@@ -43,6 +43,7 @@
 		<project.info.reports.plugin>3.4.3</project.info.reports.plugin>
 		<site.plugin>3.12.1</site.plugin>
 		<surefire.plugin.version>2.22.2</surefire.plugin.version>
+		<sonar.organization>infom124-verification-et-validation</sonar.organization>
 	</properties>
 
 	<dependencies>
