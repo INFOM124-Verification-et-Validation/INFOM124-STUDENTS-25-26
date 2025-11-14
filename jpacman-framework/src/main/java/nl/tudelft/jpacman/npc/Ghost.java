@@ -5,6 +5,7 @@ import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.board.Unit;
 import nl.tudelft.jpacman.sprite.Sprite;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +32,8 @@ public abstract class Ghost extends Unit {
      * The random variation added to the {@link #moveInterval}.
      */
     private final int intervalVariation;
+
+    private static final Random rValue = new SecureRandom();
 
     /**
      * Calculates the next move for this unit and returns the direction to move
@@ -76,8 +79,10 @@ public abstract class Ghost extends Unit {
      *
      * @return The suggested delay between moves in milliseconds.
      */
+
+
     public long getInterval() {
-        return this.moveInterval + new Random().nextInt(this.intervalVariation);
+        return this.moveInterval + rValue.nextInt(this.intervalVariation);
     }
 
     /**
@@ -97,7 +102,7 @@ public abstract class Ghost extends Unit {
         if (directions.isEmpty()) {
             return null;
         }
-        int i = new Random().nextInt(directions.size());
-        return directions.get(i);
+
+        return directions.get(rValue.nextInt(directions.size()));
     }
 }
