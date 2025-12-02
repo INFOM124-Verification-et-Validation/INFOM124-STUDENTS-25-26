@@ -175,8 +175,7 @@ class AssignmentsLogger {
 
 
 class AutoAssigner {
-    public AssignmentsLogger assign(List<Student> students, 
-      List<Workshop> workshops) {
+    public AssignmentsLogger assign(List<Student> students, List<Workshop> workshops) {
         AssignmentsLogger assignments = new AssignmentsLogger();
 
         for(Workshop workshop : workshops) {

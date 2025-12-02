@@ -1,9 +1,9 @@
 # Specification-based Testing
 
 ## 1. Goal, inputs and outputs
-- Goal:
-- Input domain:
-- Output domain:
+- Goal: aim of this function is to return the direction of Clyde
+- Input domain: Object under the name of Ghost which contains 3 parameters (spriteMap, moveInterval, intervalVariation)
+- Output domain: Return an object Direction with one of those four possibilities or a None from Optional
 
 ## 2. Explore the program (if needed)
 

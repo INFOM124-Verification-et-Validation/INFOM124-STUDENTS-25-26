@@ -2,6 +2,7 @@ package nl.tudelft.jpacman.board;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import nl.tudelft.jpacman.sprite.Sprite;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -32,6 +33,7 @@ class OccupantTest {
     @Test
     void noStartSquare() {
         // TODO
+        assertThat(unit.hasSquare()).isFalse();
     }
 
     /**
@@ -41,6 +43,9 @@ class OccupantTest {
     @Test
     void testOccupy() {
         // TODO
+        Square square = new BasicSquare();
+        unit.occupy(square);
+        assertThat(unit.hasSquare()).isTrue();
     }
 
     /**
@@ -50,5 +55,9 @@ class OccupantTest {
     @Test
     void testReoccupy() {
         // TODO
+        Square square = new BasicSquare();
+        unit.occupy(square);
+        unit.occupy(square);
+        assertThat(unit.hasSquare()).isTrue();
     }
 }

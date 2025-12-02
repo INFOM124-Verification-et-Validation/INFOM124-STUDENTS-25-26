@@ -9,8 +9,8 @@
     <version>1.0</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <junit.jupiter.version>5.9.3</junit.jupiter.version>
         <junit.platform.version>1.9.3</junit.platform.version>
         <junit.version>4.13.2</junit.version>
@@ -84,7 +84,7 @@
             <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
-                <version>1.13.2</version>
+                <version>1.21.1</version>
                 <dependencies>
                     <dependency>
                         <groupId>org.pitest</groupId>

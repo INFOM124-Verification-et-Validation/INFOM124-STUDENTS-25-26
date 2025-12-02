@@ -112,7 +112,7 @@ public class Inky extends Ghost {
     }
 
 
-    private Square followPath(List<Direction> directions, Square start) {
+    public Square followPath(List<Direction> directions, Square start) {
         Square destination = start;
 
         for (Direction d : directions) {
