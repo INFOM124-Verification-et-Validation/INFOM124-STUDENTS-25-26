@@ -62,7 +62,7 @@ class LevelTest {
         final long defaultInterval = 100L;
         level = new Level(board, Lists.newArrayList(ghost), Lists.newArrayList(
             square1, square2), collisions);
-        when(ghost.getInterval()).thenReturn(defaultInterval);
+        when(ghost.getInterval()).thenReturn((int) defaultInterval);
     }
 
     /**

@@ -35,4 +35,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         # TODO: Replace <PROJECT_KEY> with your SonarCloud project key
-        run: xvfb-run mvn -B verify sonar:sonar -Dsonar.projectKey=<PROJECT_KEY> -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+        run: xvfb-run mvn -B verify sonar:sonar -Dsonar.projectKey=INFOM124-Verification-et-Validation_25-26-NIEDZWIEDZ-Julien -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
